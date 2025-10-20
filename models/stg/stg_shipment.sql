@@ -1,5 +1,4 @@
--- models/dev/dev_shipments.sql
-{{ config() }}
+{{ config(materialized='view') }}
 
 select
     shipment_id::integer as shipment_id,

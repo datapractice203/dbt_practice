@@ -1,4 +1,4 @@
-{{ config() }}
+{{ config(materialized='view') }}
 
 select
     rental_id::integer as rental_id,
@@ -8,4 +8,4 @@ select
     quantity::integer as quantity,
     try_to_date(rental_date) as rental_date,
     try_to_date(return_date) as return_date
-from {{ ref('src_rental') }}
+from {{ ref('rental') }}

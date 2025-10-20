@@ -1,4 +1,4 @@
-{{ config() }}
+{{ config(materialized='view') }}
 
 select
     downtime_id::integer as downtime_id,
@@ -6,4 +6,4 @@ select
     start_time::timestamp as start_time,
     end_time::timestamp as end_time,
     reason as reason
-from {{ ref('src_downtime') }}
+from {{ ref('downtime') }}

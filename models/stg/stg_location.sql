@@ -1,4 +1,4 @@
-{{ config() }}
+{{ config(materialized='view') }}
 
 select
     location_id::integer as location_id,
@@ -6,4 +6,4 @@ select
     city as city,
     state as state,
     country as country
-from {{ ref('src_location') }}
+from {{ ref('location') }}
